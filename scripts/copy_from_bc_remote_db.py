@@ -67,7 +67,7 @@ def find_bc_remote_db(debug: bool):
 
 parser = argparse.ArgumentParser(description="Exports all existing schemas and tables from baseball.computer's 'bc_remote.db' to Parquet files.")
 parser.add_argument("bc_remote_db_path", nargs='?', default=None, help="Path to your 'bc_remote.db' database file from the baseball.computer repo")
-parser.add_argument("output_root", help="Top level directory to save parquet files")
+parser.add_argument("output_root", help="Top level directory to save parquet files", default="/Users/bradybates/Desktop/personal_projects/LOCAL_BASEBALL_COMPUTER_DATASET/data/parquet_exports/")
 parser.add_argument('-d', '--debug', default=None, action='store_true', help='Enable debug mode')
 args = parser.parse_args()
 

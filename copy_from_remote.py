@@ -19,7 +19,6 @@ def export_remote_bc_files_to_parquet(args):
         FROM information_schema.schemata
         WHERE schema_name NOT IN ('pg_catalog', 'information_schema')
         ;
-    print(f"Finished retrieving files in {time_delta} seconds. Created: {created_count} - Skipped: {skipped_count}")
         """).fetchdf()['schema_name'].tolist()
 
         for schema in target_schemas:
@@ -49,6 +48,11 @@ def export_remote_bc_files_to_parquet(args):
 
         end = time.time()
         time_delta = end - start
+        print(
+            f"\n |- Finished retrieving files in {time_delta} seconds" +
+            f"\n |- Files created: {created_count}" +
+            f"\n |- Files skipped: {skipped_count}"
+        )
 
 
 def find_bc_remote_db(debug: bool):

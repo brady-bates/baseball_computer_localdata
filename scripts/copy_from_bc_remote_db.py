@@ -63,7 +63,8 @@ def find_bc_remote_db(debug: bool):
         debug and print(f"search_path: {path}")
         if path.exists():
             return str(path)
-        return None
+    return None
+
 
 parser = argparse.ArgumentParser(description="Exports all existing schemas and tables from baseball.computer's 'bc_remote.db' to Parquet files.")
 parser.add_argument("bc_remote_db_path", nargs='?', default=None, help="Path to your 'bc_remote.db' database file from the baseball.computer repo")
